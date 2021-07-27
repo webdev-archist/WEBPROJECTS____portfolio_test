@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio webmaster archist: NodeJS & html5</title>
+</head>
+<body>
+<!--     
+    header>(
+        (h1>a>strong{titre H1}+img)
+        +(menu>(li>a>img+strong{titre_menu-$})*3)
+        +section.btn-options>(button.opt-$>i.icon+span{opt-$})*4
+    ) 
+-->
+    <header>
+        <h1><a href=""><strong>titre H1</strong><img src="" alt=""></a></h1>
+        <menu>
+            <li><a href=""><img src="" alt=""><strong>titre_menu-1</strong></a></li>
+            <li><a href=""><img src="" alt=""><strong>titre_menu-2</strong></a></li>
+            <li><a href=""><img src="" alt=""><strong>titre_menu-3</strong></a></li>
+        </menu>
+        <section class="btn-options"><button class="opt-1"><i class="icon"></i><span>opt-1</span></button><button class="opt-2"><i class="icon"></i><span>opt-2</span></button><button class="opt-3"><i class="icon"></i><span>opt-3</span></button><button class="opt-4"><i class="icon"></i><span>opt-4</span></button></section>
+    </header>
+
+
+    
+<!-- 
+        nav>(
+            (section.filAriane>
+                a.home{abbrégé titre home}
+                +span.separateur
+                +a.partie{abbrégé titre menu}
+                +span.separateur
+                +a.chapitre{abbrégé titre sousmenu}
+            )
+            +(section.titrologie>
+                h2{titre menu}
+                +h3{titre sousmenu}
+            )
+        )
+-->
+        <nav>
+            <section class="filAriane"><a href="" class="home">abbrégé titre home</a><span class="separateur"></span><a href="" class="partie">abbrégé titre menu</a><span class="separateur"></span><a href="" class="chapitre">abbrégé titre sousmenu</a></section>
+            <section class="titrologie">
+                <h2>titre menu</h2>
+                <h3>titre sousmenu</h3>
+            </section>
+        </nav>
+
+
+
+<!--     
+    main>(
+        span{contenu à définir}
+        +p{Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quisquam tempore qui soluta sint omnis illo neque minima sequi odit odio amet adipisci non, necessitatibus cupiditate quam repellat dolorem quia.}
+    )
+-->
+    <main>
+        <span>contenu à définir</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quisquam tempore qui soluta sint omnis illo neque minima sequi odit odio amet adipisci non, necessitatibus cupiditate quam repellat dolorem quia.</p>
+    </main>
+
+
+    
+<!--     
+    footer>(
+        span{copyright 2021}
+        +(section.contact{
+            contenu à définir
+        })
+        +section.autres{contenu à définir}
+    )
+-->
+<footer>
+    <span>copyright 2021</span>
+    <section class="contact">contenu à définir</section>
+    <section class="autres">contenu à définir</section>
+</footer>
+
+
+</body>
+</html>

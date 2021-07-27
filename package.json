@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass ./assets/toCompile/index.scss ./index.css -w",
+    "git": "git add . && git commit -m \"$m\"",
+    "git_": "git add . && git commit -m \"$m\" && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
