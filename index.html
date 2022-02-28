@@ -5,68 +5,192 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio webmaster archist: NodeJS & html5</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body class="format-0 --offview-0">
 <!--     
-    header>(
-        (h1>a>strong{titre H1}+img)
-        +(menu>(li>a>img+strong{titre_menu-$})*3)
-        +section.btn-options>(button.opt-$>i.icon+span{opt-$})*4
-    ) 
+    header.headerbar>
+        (hgroup.headerbarBranding[itemscope itemtype="https://schema.org/Organization"]
+            >(h1.headerbarBranding__logoSlogan{slogan}
+                >a[href="/" title="titre H1" itemprop="url"]
+                    >img[src="assets/logo.png" alt="logo de (la dite marque)" itemprop="logo"]
+                    +strong{marque}
+            )
+            +h2.headerbarBranding__problematique{titre Hn(problématique)}
+                >strong
+                    >a{expression-clé}
+            button.headerbarBranding__carteVisite-buttonToggle{X}
+                >i.iconCarteVisiteATrouverxdxdxd
+        )
+        +(menu.mainMenu.--linksH2
+            >(li>
+                h2{titres_menu_principal}
+                    >strong
+                        >a{...(courte-traîne)-$}[href="/menu-$"]
+                            >img[src="assets/img/menu-$.png"]
+            )*3
+        )
+        +(ul.btnOptions
+            >(button.opt-${ok}
+                >i.icon+span{opt-$}
+            )*4
+        )
+        +section.carteVisite.carteVisite
+            >(h2.carteVisite__titre{titre carte visite}*2
+            +img.carteVisite__image[src="assets/logo.gif"]
+            +nav.carteVisite__accordeon>
+            (
+                ul>(li>a[href="#hash_semantic"])*3
+                +p{contenu text et images en rapport avec le menu-accordéon}
+                +ul.listeLiens{liste de lien en rapport avec le menu-accordéon}(li>a{html+title})
+            )
+        )
+        +button.shortenExpand-toggleBtn
 -->
-    <header>
-        <h1><a href=""><strong>titre H1</strong><img src="" alt=""></a></h1>
-        <menu>
-            <li><a href=""><img src="" alt=""><strong>titre_menu-1</strong></a></li>
-            <li><a href=""><img src="" alt=""><strong>titre_menu-2</strong></a></li>
-            <li><a href=""><img src="" alt=""><strong>titre_menu-3</strong></a></li>
+
+    <header class="headerbar">
+        <hgroup class="headerbarBranding" itemscope itemtype="https://schema.org/Organization">
+            <h1 class="headerbarBranding__logoSlogan"><a href="/" title="titre H1" itemprop="url"><img src="assets/logo.png" alt="logo de (la dite marque)" itemprop="logo" /><strong>marque</strong></a>slogan</h1>
+            <h2 class="headerbarBranding__problematique">titre Hn(problématique)<strong><a href="">expression-clé</a><button class="headerbarBranding__carteVisite-buttonToggle">X<i class="iconCarteVisiteATrouverxdxdxd"></i></button></strong></h2>
+        </hgroup>
+        <menu class="mainMenu --linksH2">
+            <li>
+                <h2>titres_menu_principal<strong><a href="">...(courte-traîne)-1<img src="assets/img/menu-1.png" alt=""></a></strong></h2>
+            </li>
+            <li>
+                <h2>titres_menu_principal<strong><a href="">...(courte-traîne)-2<img src="assets/img/menu-2.png" alt=""></a></strong></h2>
+            </li>
+            <li>
+                <h2>titres_menu_principal<strong><a href="">...(courte-traîne)-3<img src="assets/img/menu-3.png" alt=""></a></strong></h2>
+            </li>
         </menu>
-        <section class="btn-options"><button class="opt-1"><i class="icon"></i><span>opt-1</span></button><button class="opt-2"><i class="icon"></i><span>opt-2</span></button><button class="opt-3"><i class="icon"></i><span>opt-3</span></button><button class="opt-4"><i class="icon"></i><span>opt-4</span></button></section>
+        <ul class="btnOptions"><button class="opt-1">ok<i class="icon"></i><span>opt-1</span></button><button class="opt-2">ok<i class="icon"></i><span>opt-2</span></button><button class="opt-3">ok<i class="icon"></i><span>opt-3</span></button><button class="opt-4">ok<i class="icon"></i><span>opt-4</span></button></ul>
+        <section class="carteVisite carteVisite">
+            <h2 class="carteVisite__titre">titre carte visite</h2>
+            <h2 class="carteVisite__titre">titre carte visite</h2>
+            <img src="assets/logo.gif" alt="" class="carteVisite__image">
+            <nav class="carteVisite__accordeon">
+                <ul>
+                    <li><a href="#hash_semantic"></a></li>
+                    <li><a href="#hash_semantic"></a></li>
+                    <li><a href="#hash_semantic"></a></li>
+                    <p>contenu text et images en rapport avec le menu-accordéon</p>
+                    <ul class="listeLiens">liste de lien en rapport avec le menu-accordéon</ul>
+                    <li><a href="">html+title</a></li>
+                </ul>
+            </nav>
+            <button class="shortenExpand-toggleBtn"></button>
+        </section>
     </header>
+
 
 
     
 <!-- 
-        nav>(
-            (section.filAriane>
-                a.home{abbrégé titre home}
-                +span.separateur
-                +a.partie{abbrégé titre menu}
-                +span.separateur
-                +a.chapitre{abbrégé titre sousmenu}
+        // nav>(section.titrologie>h2.titrologie__titrePage{titre page: mots similaires ou provenant du champs lexico-sémantique de mot-clé principal}+h2.titrologie_googleSearch{longue traîne})+ol.filAriane>((li>a.filAriane__home{abbrégé titre page home})+(li>a.filAriane__partie{abbrégé titre page menu})+(li>a.filAriane__chapitre{abbrégé titre page sousmenu}))+.
+        nav>
+            (section.titrologie>
+                h2.titrologie__titrePage{titre page: mots similaires ou provenant du champs lexico-sémantique de mot-clé principal}
+                +h2.titrologie_googleSearch{longue traîne}
             )
-            +(section.titrologie>
-                h2{titre menu}
-                +h3{titre sousmenu}
+            +(ol.filAriane>
+                (li>h2>a.filAriane__home{abbrégé titre page home})
+                +(li>h2>a.filAriane__partie{abbrégé titre page menu})
+                +(li>h2>a.filAriane__chapitre{abbrégé titre page sousmenu})
             )
-        )
 -->
-        <nav>
-            <section class="filAriane"><a href="" class="home">abbrégé titre home</a><span class="separateur"></span><a href="" class="partie">abbrégé titre menu</a><span class="separateur"></span><a href="" class="chapitre">abbrégé titre sousmenu</a></section>
-            <section class="titrologie">
-                <h2>titre menu</h2>
-                <h3>titre sousmenu</h3>
-            </section>
-        </nav>
+<nav>
+    <section class="titrologie">
+        <h2 class="titrologie__titrePage">titre page: mots similaires ou provenant du champs lexico-sémantique de mot-clé principal</h2>
+        <h2 class="titrologie_googleSearch">longue traîne</h2>
+    </section>
+    <ol class="filAriane">
+        <li>
+            <h2><a href="" class="filAriane__home">abbrégé titre page home</a></h2>
+        </li>
+        <li>
+            <h2><a href="" class="filAriane__partie">abbrégé titre page menu</a></h2>
+        </li>
+        <li>
+            <h2><a href="" class="filAriane__chapitre">abbrégé titre page sousmenu</a></h2>
+        </li>
+    </ol>
+    <div class=""></div>
+</nav>
+
+
 
 
 
 <!--     
-    main>(
-        span{contenu à définir}
-        +p{Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quisquam tempore qui soluta sint omnis illo neque minima sequi odit odio amet adipisci non, necessitatibus cupiditate quam repellat dolorem quia.}
-    )
+    main.content>
+        h3.content__title{titre optimisé de section}
+        +nav.content__multimedias
+        +p.content__description{Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quisquam tempore qui soluta sint omnis illo neque minima sequi odit odio amet adipisci non, necessitatibus cupiditate quam repellat dolorem quia.}
+        +hr
+        +article>
+            h1{créer la baseline de l'article(contenu de la page présenté hierarchiquement)}
+            div{...}
+            div{...}
+        +hr  
+        +nav.content__tagzone
+        +section.content__SNS>
+            h3{...shares, commentaires, followers, .....}
+            +p{...SNS's content...}
 -->
-    <main>
-        <span>contenu à définir</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quisquam tempore qui soluta sint omnis illo neque minima sequi odit odio amet adipisci non, necessitatibus cupiditate quam repellat dolorem quia.</p>
-    </main>
+<main class="content">
+    <h3 class="content__title">titre optimisé de section</h3>
+    <nav class="content__multimedias"></nav>
+    <p class="content__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quisquam tempore qui soluta sint omnis illo neque minima sequi odit odio amet adipisci non, necessitatibus cupiditate quam repellat dolorem quia.</p>
+    <hr>
+    <article>
+        <h1>créer la baseline de l'article(contenu de la page présenté hierarchiquement)</h1>
+        <div>...</div>
+        <div>...</div>
+        <hr>
+        <nav class="content__tagzone"></nav>
+        <section class="content__SNS">
+            <h3>...shares, commentaires, followers, .....</h3>
+            <p>...SNS's content...</p>
+        </section>
+    </article>
+</main>
 
 
-    
+<!-- 
+    aside.plus>
+        h5{titre h5 contextuelle}
+        +section.plus__contextuel{contenu à définir/intégrer continuellement}
+        +hr
+        +h5{titre h5 publicitaire}
+        +(
+            section.plus__remarketingCard>figure.card>img.card__img+figcaption.card__text>
+               lorem
+               +a{liens cliquables}*2
+        )
+        +hr
+-->
+<aside class="plus">
+    <h5>titre h5 contextuelle</h5>
+    <section class="plus__contextuel">contenu à définir/intégrer continuellement</section>
+    <hr>
+    <h5>titre h5 publicitaire</h5>
+    <section class="plus__remarketingCard">
+        <figure class="card">
+            <img src="" alt="" class="card__img">
+            <figcaption class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore expedita molestias, quidem accusantium necessitatibus asperiores! Id fugiat repellat dolorem. Cumque qui rem laboriosam laudantium amet enim illo cum mollitia at!<a href="">liens cliquables</a><a href="">liens cliquables</a></figcaption>
+        </figure>
+    </section>
+    <hr>
+</aside>
+
+
+
+
+
 <!--     
     footer>(
-        span{copyright 2021}
+        button.shorteExpand-footerBtcopyright 2021}
         +(section.contact{
             contenu à définir
         })

@@ -1,0 +1,181 @@
+@use "sass:map";
+@use "sass:list";
+/****/
+@import "../scss/main";
+@import "mymixins";
+/****/
+$A0:118.9mm 84.1mm;$A1:84.1mm 59.4mm;$A2:59.4mm 42mm;$A3:42mm 29.7mm;$A4:28.7mm 21mm;$A5:21mm 14.8mm;$A6:14.8mm 10.5mm;$A7:10.5mm 7.4mm;$A8:7.4mm 5.25mm;$A9:5.25mm 3.7mm;$A10:3.7mm 2.625mm;
+$A0HR:14043px 9933px;$A1HR:9933px 7016px;$A2HR:7016px 4961px;$A3HR:4961px 3508px;$A4HR:3508px 2480px;$A5HR:2480px 1748px;$A6HR:1748px 1240px;$A7HR:1240px 874px;$A8HR:874px 614px;$A9HR:614px 437px;$A10HR:437px 307px;
+$A0BR:3370px 2384px;$A1BR:2384px 1684px;$A2BR:1684px 1191px;$A3BR:1191px 842px;$A4BR:842px 595px;$A5BR:595px 420px;$A6BR:420px 298px;$A7BR:298px 210px;$A8BR:210px 147px;$A9BR:147px 105px;$A10BR:105px 74px;
+// Pour éviter les mauvaises surprises, il est fortement recommandé de décider de la taille et de la résolution de votre document avant même de commencer à le préparer sur ordinateur.
+$A: ("0HR":14043px 9933px,"1HR":9933px 7016px,"2HR":7016px 4961px,"3HR":4961px 3508px,"4HR":3508px 2480px,"5HR":2480px 1748px,"6HR":1748px 1240px,"7HR":1240px 874px,"8HR":874px 614px,"9HR":614px 437px,"10HR":437px 307px);
+body{
+    height: 100%;width: 100%;position: absolute;
+    &>div[id="root"]{
+        color:red;
+    }
+}
+body.format-0{
+    &.--offview-0{overflow-y:hidden;}
+    padding: 5rem 0;
+    header.headerbar{
+        @extend %absTFULL;
+        overflow:hidden;
+        display:flex;
+        height:4rem;
+        border-bottom:1px solid silver;
+        box-shadow: 0 0 10px;
+        >*{
+            margin: 0;
+            &:not(menu){
+                width: 10%;
+            }
+        }
+        hgroup{
+            height: 100%;
+            position:relative;
+            background:green;
+            overflow:hidden;
+            &:hover{
+                position:absolute;
+                width: 100%;
+                transition: width .4s, background .4s ease-in-out, color 1s ease-in-out;
+            }
+            >h1.headerbarBranding__logoSlogan{
+                height: 100%;
+                padding-left:5rem;
+                color:transparent;
+                &:hover{
+                    transition:color .4s;
+                    color:black;
+                }
+                >a{
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    // border:solid;
+                    // border-width: 0 3px 3px 0;
+                    height:100%;
+                    border-right: solid;
+                    >img{float:left;height: 100%;}
+                    >strong{
+                        background: wheat;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 10%;
+                        border-right: solid;
+                        line-height: 0;
+                        font-size: .8rem;
+                        text-align: center;
+                        // color:transparent;
+                    }
+                }
+            }
+            h2{
+                display:none;
+            }
+        }
+        menu.mainMenu{
+            list-style: none;
+            width: 80%;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            border:solid;
+            
+            >li{
+                position: relative;
+                width: 33%;
+                text-align: center;
+                line-height: 4rem;
+                border: solid;
+                border-width: 0 3px 0 3px;
+                box-sizing: border-box;
+                h2{
+                    >strong{
+                        >a{
+                            >img{
+
+                            }
+                                
+                        }
+                    }
+                }
+                // @extend %affore;
+                @include afforeVert((border:1));
+            }
+        }
+        ul.btnOptions{
+            width: 10%;
+            display: flex;
+            flex-flow:wrap;
+            margin: 0;
+            >button{@extend %w50;}
+        }
+        section.carteVisite{
+            position:absolute;
+            display: none;
+        }
+    }
+    nav{
+        display: flex;
+        border-bottom: solid;
+        height: 2rem;
+        section{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            &.filAriane{
+                a::after{content:">";margin:0 1rem;}
+            }
+            &.titrologie{
+                position: relative;
+                >*{
+                    margin:0;
+                    height: 100%;
+                    text-align: right;
+                    @extend %w100;
+                    &:first-child~*{
+                        @extend %absTFULL;
+                    }
+                }
+                >h1,>h2,h3,h4{}
+            }
+        }
+    }
+    main{
+
+    }
+    footer{
+        border:solid;
+        border-bottom: 0;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        display: inline-block;
+        padding: .1rem 1rem;
+        margin: .0 1rem;
+    }
+}
+body{
+    @extend %absTL0;
+    height:list.nth(map.get($A, "4HR"), 2);
+    margin: 0;
+
+
+    >header{
+
+    }
+    >nav{
+
+    }
+    >main{
+
+    }
+    >footer{
+
+    }
+}

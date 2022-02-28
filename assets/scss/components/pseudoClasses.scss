@@ -1,0 +1,17 @@
+
+
+@mixin afforeVert($opt:(border: 0)){
+    &::before,&::after{content:"";
+        @if(map.get($opt, "border") != 0){
+            border-width:1px;
+        }
+    }
+    &::before{@extend %absTFULL_;border-bottom:solid;}
+    &::after{@extend %absBFULL_;border-top:solid;}
+}
+
+@mixin afforeHorz(){
+    &::before,&::after{content:"";border-width:1px;}
+    &::before{@extend %absTFULL_;border-bottom:solid;}
+    &::after{@extend %absBFULL_;border-top:solid;}
+}

@@ -1,0 +1,5 @@
+/**/
+a:not(.safe){text-decoration:none;}
+ul:not(.safe){@extend %p0;}
+button:not(.safe){cursor:pointer;}
+h1,h2,h3,h4,h5,h6{margin:0;} 

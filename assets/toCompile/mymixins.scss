@@ -1,0 +1,176 @@
+@use "sass:map";
+
+$breakpoints: (
+    mobile: 599px,
+    tablette: 999px,
+    desktop: 1199px
+);
+@mixin mobile-only($max: map-get($breakpoints, mobile)) {
+    @media screen and (max-width: $max){
+        @content;
+    }
+}
+@mixin tablette-only($min: map-get($breakpoints, mobile) + 1, $max: map-get($max, tablette)) {
+    @media screen and (min-width: $min) and (max-width: $max){
+        @content;
+    }
+}
+  
+@mixin desktop-only($min: map-get($breakpoints, tablette) + 1, $max: map-get($breakpoints, desktop)) {
+    @media screen and (min-width: $min )/* and (max-width: $max)*/{
+        @content;
+    }
+}
+.proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include mobile-only{
+        grid-template-columns: 1fr;
+    }
+}
+@mixin pseudo-classes(
+    $map: (hover: (),  active: (),  visited: ()),
+    $into-pseudo-elt: ""
+  ){
+    
+    @if($into-pseudo-elt != ""){
+      @if($into-pseudo-elt == "before" or $into-pseudo-elt == "after"){
+        $into-pseudo-elt: "::" + $into-pseudo-elt;
+      }@else {
+        $into-pseudo-elt: "";
+      }
+    }
+    @each $key, $value in $map{
+      &#{$key}{
+        @each $k,$v in $value{
+          #{$k}: $v;
+        }
+      }
+  }
+}
+@mixin pseudo-elements($map){
+    @each $key, $value in $map{
+        &::#{$key}{
+            @each $k,$v in $value{
+                #{$k}: $v;
+            }
+        }
+    }
+}
+/*
+
+*/
+//
+
+
+@mixin inlines(){
+    a,abbr,acronym,audio,b,bdi,bdo,big,br,button,canvas,cite,code,data,datalist,del,dfn,em,embed,iframe,img,input,ins,kbd,label,map,mark,meter,noscript,object,output,picture,progress,q,ruby,s,samp,script,select,slot,small,span,strong,sub,sup,svg,template,u,tt,var,video,wbr
+    {
+        
+    }
+}
+@mixin inlines_(){
+    a,audio,b,big,button,canvas,cite,code,data,datalist,em,iframe,img,input,label,map,mark,meter,picture,progress,script,select,slot,small,span,strong,svg,u,video
+    {
+        
+    }
+}
+@mixin blocks(){
+    address,article,aside,blockquote,details,dialog,dd,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,li,main,nav,ol,p,pre,section,table,ul
+    {
+
+    }
+}
+/*
+ - CONTENUS PRINCIPAUX
+ - RELATIFS AUX FORMULAIRE
+ - CONTENUS SPÉCIFIQUES
+*/
+// 7 CATÉGORIES DE CONTENU
+@mixin flow(){
+    area,link,main,
+    a,abbr,address,article,aside,audio,b,bdi,bdo,blockquote,br,button,canvas,cite,code,data,date,datalist,del,details,dfn,dialog,div,dl,em,embed,fieldset,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,i,iframe,img,input,ins,kbd,keygen,label,map,mark,math,menu,meter,nav,noscript,object,ol,output,p,picture,pre,progress,q,ruby,s,samp,script,section,select,slot,small,span,strong,sub,sup,svg,table,template,textarea,time,u,ul,var,video,wbr
+    {
+
+    }
+}
+@mixin sectionning(){
+    article,aside,nav,section{
+
+    }
+}
+@mixin heading(){
+    h1,h2,h3,h4,h5,h6,hgroup{
+
+    }
+}
+@mixin phrasing(){
+    a,area,del,ins,link,map,meta,
+    abbr,audio,b,bdi,bdo,br,button,canvas,cite,code,data,date,datalist,dfn,em,embed,i,iframe,img,input,kbd,keygen,label,mark,meter,noscript,object,output,picture,progress,q,ruby,s,samp,script,select,slot,small,span,strong,sub,sup,svg,template,textarea,time,u,var,video,wbr
+    {
+
+    }
+}
+@mixin embedded(){//intégré
+    audio,canvas,embed,iframe,img,math,object,picture,svg,video{
+
+    }
+}
+@mixin interactive(){
+    a,audio,img,input,object,video,
+    button,details,embed,iframe,keygen,label,select,textarea
+    {
+
+    }
+}
+@mixin meta(){
+    base,link,meta,noscript,script,style,template,title{
+
+    }
+}
+@mixin palpable(){
+    // ???
+}
+/*
+
+*/
+// 8 TYPES DE BALISES HTML5
+@mixin firstLevel(){
+    html,head,body{
+
+    }
+}
+@mixin headers(){
+    link,meta,script,style,title{
+
+    }
+}
+@mixin structuration(){
+    abbr,blockquote,cite,q,sup,sub,strong,em,mark,h1,h2,h3,h4,h5,h6,img,figure,figcaption,audio,video,source,a,br,p,hr,address,del,ins,dfn,kbd,pre,progress,time
+    {
+
+    }
+}
+@mixin list(){
+    ul,ol,li,dl,dt,dd{
+
+    }
+}
+@mixin table(){
+    table,caption,tr,th,td,thead,tbody,tfoot{
+
+    }
+}
+@mixin forms(){
+    form,fieldset,legend,label,input,textarea,select,option,optgroup{
+
+    }
+}
+@mixin sectionning(){
+    header,nav,footer,section,article,aside{
+        
+    }
+}
+@mixin generic(){//"BALISES UNIVERSELLES"
+    div,span{}
+}
